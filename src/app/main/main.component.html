@@ -1,0 +1,28 @@
+<h1>Tasks</h1>
+<table>
+    <thead>
+        <tr>
+           <th>Projects</th>
+           <th>Client Name</th>
+           <th>StartDate</th> 
+           <th>End Date</th>
+           <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of data, let j=index">
+            <td>{{i.Project}}</td>
+            <td>{{i.ClientName}}</td>
+            <td>{{i.startDate}}</td>
+            <td>{{i.endDate}}</td>
+    <select id="status" name="status"  (change)="onChange(i.id,$event,i.status)">
+       <option value="3" [selected]="i.status==='3'" >Completed</option>
+       <option value="4" [selected]="i.status==='4'" >On Hold</option>
+       <option value="1" [selected]="i.status==='1'" >Not Started</option>
+       <option value="2" [selected]="i.status==='2'" >InProgress</option>
+       <option value="9" [selected]="i.status==='9'" >Cancelled</option>
+    </select> 
+    <td>{{i.status}}</td>
+        </tr>
+    </tbody>
+</table>
